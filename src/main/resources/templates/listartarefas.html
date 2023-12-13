@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+          <ul class="nav nav-pills">
+            
+            <li class="nav-item"><a href="/create" class="nav-link " >criar</a></li>
+            <li class="nav-item"><a href="" class="nav-link active" aria-current="page">listar</a></li>
+          
+          </ul>
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+        </header>
+        <hr>
+
+        <div class="form-signin">
+            <form>
+             
+              <h3 class="h3 mb-3 fw-normal">Tarefas</h3>
+              <div class="bd-example">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">tarefa</th>
+                    <th scope="col">data de execução</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Edite</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr data-th-each="task: ${tasks}">
+                   
+                    <td data-th-text="${task.id}"></td>
+                    <td data-th-text="${task.name}"></td>
+                    <td data-th-text="${{task.date}}"></td>
+                    <td> <a th:href="@{/delete/{name} (name=${task.name})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2">Deletar</i></a> </td>
+                    <td><a th:href = "@{'/edit/'+ ${task.id}}" class="btn btn-primary" >Editar</a></td>
+                  
+                  </tr>
+                  </tbody>
+                </table>
+            </form>
+        </div>
+
+
+      </div>
+    
+</body>
+</html>
